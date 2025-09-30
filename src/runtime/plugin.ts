@@ -6,5 +6,4 @@ export default defineNuxtPlugin((nuxtApp) => {
   // add tailwindcss() --- IGNORE ---
 
   console.log('Nuxt App:', nuxtApp.hooks)
-
 })

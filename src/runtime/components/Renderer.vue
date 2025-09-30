@@ -28,7 +28,7 @@
               index,
               'bulleted_list_item',
             )"
-            :key="nextBlock.id"
+            :key="`${nextBlock.id}-${nextIndex}`"
           >
             <NotionBulletedListItemBlock
               :block="nextBlock as BulletedListItemBlock"
