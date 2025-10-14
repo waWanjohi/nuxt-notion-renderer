@@ -1,8 +1,8 @@
 {
-  "name": "notion-renderer",
-  "version": "1.0.0",
+  "name": "nuxt-notion-renderer",
+  "version": "1.0.1",
   "description": "A Nuxt 3 & 4 module to render Notion pages",
-  "repository": "gideonwanjohi/notion-renderer",
+  "repository": "waWanjohi/nuxt-notion-renderer",
   "license": "MIT",
   "type": "module",
   "exports": {
