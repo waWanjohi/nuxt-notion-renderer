@@ -1,12 +1,20 @@
 <template>
   <div class="notion-renderer">
-    <TransitionGroup tag="div" name="slide-up" appear mode="out-in">
-      <template v-for="(block, index) in blocks" :key="block.id">
+    <TransitionGroup
+      tag="div"
+      name="slide-up"
+      appear
+      mode="out-in"
+    >
+      <template
+        v-for="(block, index) in blocks"
+        :key="block.id"
+      >
         <!-- Group consecutive list items into proper lists -->
         <ul
           v-if="
-            block.type === 'bulleted_list_item' &&
-            !isConsecutiveListItem(blocks, index, 'bulleted_list_item')
+            block.type === 'bulleted_list_item'
+              && !isConsecutiveListItem(blocks, index, 'bulleted_list_item')
           "
           class="list-disc list-inside mb-4 ml-4 space-y-1"
         >
@@ -29,8 +37,8 @@
         </ul>
         <ol
           v-else-if="
-            block.type === 'numbered_list_item' &&
-            !isConsecutiveListItem(blocks, index, 'numbered_list_item')
+            block.type === 'numbered_list_item'
+              && !isConsecutiveListItem(blocks, index, 'numbered_list_item')
           "
           class="list-decimal list-inside mb-4 ml-4 space-y-1"
         >
@@ -39,7 +47,7 @@
           />
           <!-- Render consecutive list items -->
           <template
-            v-for="(nextBlock, nextIndex) in getConsecutiveListItems(
+            v-for="nextBlock in getConsecutiveListItems(
               blocks,
               index,
               'numbered_list_item',
@@ -99,7 +107,10 @@
             :block="block as BookmarkBlock"
           />
           <!-- Video -->
-          <NotionVideoBlock v-else-if="block.type === 'video'" :block="block" />
+          <NotionVideoBlock
+            v-else-if="block.type === 'video'"
+            :block="block"
+          />
           <!-- Child Page -->
           <NotionChildPageBlock
             v-else-if="block.type === 'child_page'"
@@ -141,17 +152,17 @@ import type {
   ImageBlock,
   BookmarkBlock,
   ChildPageBlock,
-} from "../types/notion-blocks";
+} from '../types/notion-blocks'
 
 interface Props {
-  blocks: AnyNotionBlock[];
+  blocks: AnyNotionBlock[]
 }
 
-defineProps<Props>();
+defineProps<Props>()
 
 // Helper functions
 function isHeadingBlock(block: AnyNotionBlock): block is HeadingBlock {
-  return ["heading_1", "heading_2", "heading_3"].includes(block.type);
+  return ['heading_1', 'heading_2', 'heading_3'].includes(block.type)
 }
 
 // Check if current block is a consecutive list item (not the first one in a group)
@@ -160,19 +171,19 @@ function isConsecutiveListItem(
   index: number,
   listType: string,
 ): boolean {
-  if (index === 0) return false;
-  return blocks[index - 1]?.type === listType;
+  if (index === 0) return false
+  return blocks[index - 1]?.type === listType
 }
 
 // Check if current block is part of a list group (for skipping individual rendering)
 function isPartOfListGroup(blocks: AnyNotionBlock[], index: number): boolean {
-  const block = blocks[index];
-  if (!["bulleted_list_item", "numbered_list_item"].includes(block.type))
-    return false;
+  const block = blocks[index]
+  if (!['bulleted_list_item', 'numbered_list_item'].includes(block.type))
+    return false
 
   // If it's the first item in a list, it's not part of a group (it starts the group)
-  if (index === 0) return false;
-  return blocks[index - 1]?.type === block.type;
+  if (index === 0) return false
+  return blocks[index - 1]?.type === block.type
 }
 
 // Get consecutive list items after the current index
@@ -181,16 +192,17 @@ function getConsecutiveListItems(
   startIndex: number,
   listType: string,
 ): AnyNotionBlock[] {
-  const items: AnyNotionBlock[] = [];
+  const items: AnyNotionBlock[] = []
 
   for (let i = startIndex + 1; i < blocks.length; i++) {
     if (blocks[i].type === listType) {
-      items.push(blocks[i]);
-    } else {
-      break;
+      items.push(blocks[i])
+    }
+    else {
+      break
     }
   }
 
-  return items;
+  return items
 }
 </script>

@@ -20,35 +20,34 @@ export interface NotionBlock {
   archived: boolean
   in_trash: boolean
   type: BlockType
-  // @ts-expect-error - Dynamic keys based on block type
-  [key: string]: any // For block-specific content
+  [key: string]: any
 }
 
 export type BlockType
   = | 'heading_1'
-  | 'heading_2'
-  | 'heading_3'
-  | 'paragraph'
-  | 'bulleted_list_item'
-  | 'numbered_list_item'
-  | 'to_do'
-  | 'toggle'
-  | 'quote'
-  | 'divider'
-  | 'code'
-  | 'image'
-  | 'video'
-  | 'file'
-  | 'bookmark'
-  | 'embed'
-  | 'table'
-  | 'table_row'
-  | 'column_list'
-  | 'column'
-  | 'child_page'
-  | 'child_database'
-  | 'synced_block'
-  | 'callout'
+    | 'heading_2'
+    | 'heading_3'
+    | 'paragraph'
+    | 'bulleted_list_item'
+    | 'numbered_list_item'
+    | 'to_do'
+    | 'toggle'
+    | 'quote'
+    | 'divider'
+    | 'code'
+    | 'image'
+    | 'video'
+    | 'file'
+    | 'bookmark'
+    | 'embed'
+    | 'table'
+    | 'table_row'
+    | 'column_list'
+    | 'column'
+    | 'child_page'
+    | 'child_database'
+    | 'synced_block'
+    | 'callout'
 
 export interface RichText {
   type: 'text' | 'mention' | 'equation'
@@ -58,7 +57,7 @@ export interface RichText {
       url: string
     } | null
   }
-  mention?: any
+  mention?: unknown
   equation?: {
     expression: string
   }
@@ -223,20 +222,20 @@ export interface ChildPageBlock extends NotionBlock {
 // Union type for all possible block types
 export type AnyNotionBlock
   = | HeadingBlock
-  | ParagraphBlock
-  | BulletedListItemBlock
-  | NumberedListItemBlock
-  | ToDoBlock
-  | QuoteBlock
-  | CalloutBlock
-  | CodeBlock
-  | DividerBlock
-  | ImageBlock
-  | VideoBlock
-  | BookmarkBlock
-  | EmbedBlock
-  | ChildPageBlock
-  | NotionBlock
+    | ParagraphBlock
+    | BulletedListItemBlock
+    | NumberedListItemBlock
+    | ToDoBlock
+    | QuoteBlock
+    | CalloutBlock
+    | CodeBlock
+    | DividerBlock
+    | ImageBlock
+    | VideoBlock
+    | BookmarkBlock
+    | EmbedBlock
+    | ChildPageBlock
+    | NotionBlock
 
 export interface NotionBlocksResponse {
   object: 'list'
