@@ -24,8 +24,6 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {},
   async setup(_options, nuxt) {
-    console.log('Checking for Tailwind CSS module in app...', nuxt.__name)
-    console.log('Setting up nuxt-notion-renderer module...')
     const { resolve } = createResolver(import.meta.url)
 
     nuxt.options.vite.plugins ||= []
@@ -39,7 +37,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     // add nuxt icon module --- IGNORE ---
     if (!nuxt.options.modules?.includes('nuxt-icon')) {
-      console.log('Adding nuxt-icon module...')
       nuxt.options.modules.push('nuxt-icon')
     }
 
