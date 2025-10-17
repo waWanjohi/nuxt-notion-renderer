@@ -40,123 +40,123 @@
 </template>
 
 <script setup lang="ts">
-// import type { NotionBlock } from "../src/runtime/types/notion-blocks";
+import type { NotionBlock } from '../src/runtime/types/notion-blocks'
 
 // Sample blocks for demonstration
-// const sampleBlocks: NotionBlock[] = [
-//   {
-//     object: "block",
-//     id: "1",
-//     parent: { type: "page_id", page_id: "test" },
-//     created_time: "2024-01-01T00:00:00.000Z",
-//     last_edited_time: "2024-01-01T00:00:00.000Z",
-//     created_by: { object: "user", id: "user1" },
-//     last_edited_by: { object: "user", id: "user1" },
-//     has_children: false,
-//     archived: false,
-//     in_trash: false,
-//     type: "heading_1",
-//     heading_1: {
-//       rich_text: [
-//         {
-//           type: "text",
-//           text: { content: "Welcome to Notion Renderer!" },
-//           plain_text: "Welcome to Notion Renderer!",
-//         },
-//       ],
-//     },
-//   },
-//   {
-//     object: "block",
-//     id: "2",
-//     parent: { type: "page_id", page_id: "test" },
-//     created_time: "2024-01-01T00:00:00.000Z",
-//     last_edited_time: "2024-01-01T00:00:00.000Z",
-//     created_by: { object: "user", id: "user1" },
-//     last_edited_by: { object: "user", id: "user1" },
-//     has_children: false,
-//     archived: false,
-//     in_trash: false,
-//     type: "paragraph",
-//     paragraph: {
-//       rich_text: [
-//         {
-//           type: "text",
-//           text: {
-//             content:
-//               "This is a sample paragraph showing how the Notion renderer works. It supports ",
-//           },
-//           plain_text:
-//             "This is a sample paragraph showing how the Notion renderer works. It supports ",
-//         },
-//         {
-//           type: "text",
-//           text: { content: "rich text formatting" },
-//           annotations: { bold: true },
-//           plain_text: "rich text formatting",
-//         },
-//         {
-//           type: "text",
-//           text: { content: " like bold text." },
-//           plain_text: " like bold text.",
-//         },
-//       ],
-//     },
-//   },
-// ];
+const sampleBlocks: NotionBlock[] = [
+  {
+    object: 'block',
+    id: '1',
+    parent: { type: 'page_id', page_id: 'test' },
+    created_time: '2024-01-01T00:00:00.000Z',
+    last_edited_time: '2024-01-01T00:00:00.000Z',
+    created_by: { object: 'user', id: 'user1' },
+    last_edited_by: { object: 'user', id: 'user1' },
+    has_children: false,
+    archived: false,
+    in_trash: false,
+    type: 'heading_1',
+    heading_1: {
+      rich_text: [
+        {
+          type: 'text',
+          text: { content: 'Welcome to Notion Renderer!' },
+          plain_text: 'Welcome to Notion Renderer!',
+        },
+      ],
+    },
+  },
+  {
+    object: 'block',
+    id: '2',
+    parent: { type: 'page_id', page_id: 'test' },
+    created_time: '2024-01-01T00:00:00.000Z',
+    last_edited_time: '2024-01-01T00:00:00.000Z',
+    created_by: { object: 'user', id: 'user1' },
+    last_edited_by: { object: 'user', id: 'user1' },
+    has_children: false,
+    archived: false,
+    in_trash: false,
+    type: 'paragraph',
+    paragraph: {
+      rich_text: [
+        {
+          type: 'text',
+          text: {
+            content:
+              'This is a sample paragraph showing how the Notion renderer works. It supports ',
+          },
+          plain_text:
+            'This is a sample paragraph showing how the Notion renderer works. It supports ',
+        },
+        {
+          type: 'text',
+          text: { content: 'rich text formatting' },
+          annotations: { bold: true },
+          plain_text: 'rich text formatting',
+        },
+        {
+          type: 'text',
+          text: { content: ' like bold text.' },
+          plain_text: ' like bold text.',
+        },
+      ],
+    },
+  },
+]
 
 // Individual component examples
-// const paragraphBlock: NotionBlock = sampleBlocks[1]!
+const paragraphBlock: NotionBlock = sampleBlocks[1]!
 
-// const headingBlock: NotionBlock = {
-//   object: 'block',
-//   id: '3',
-//   parent: { type: 'page_id', page_id: 'test' },
-//   created_time: '2024-01-01T00:00:00.000Z',
-//   last_edited_time: '2024-01-01T00:00:00.000Z',
-//   created_by: { object: 'user', id: 'user1' },
-//   last_edited_by: { object: 'user', id: 'user1' },
-//   has_children: false,
-//   archived: false,
-//   in_trash: false,
-//   type: 'heading_2',
-//   heading_2: {
-//     rich_text: [
-//       {
-//         type: 'text',
-//         text: { content: 'This is a Heading 2' },
-//         plain_text: 'This is a Heading 2',
-//       },
-//     ],
-//   },
-// }
+const headingBlock: NotionBlock = {
+  object: 'block',
+  id: '3',
+  parent: { type: 'page_id', page_id: 'test' },
+  created_time: '2024-01-01T00:00:00.000Z',
+  last_edited_time: '2024-01-01T00:00:00.000Z',
+  created_by: { object: 'user', id: 'user1' },
+  last_edited_by: { object: 'user', id: 'user1' },
+  has_children: false,
+  archived: false,
+  in_trash: false,
+  type: 'heading_2',
+  heading_2: {
+    rich_text: [
+      {
+        type: 'text',
+        text: { content: 'This is a Heading 2' },
+        plain_text: 'This is a Heading 2',
+      },
+    ],
+  },
+}
 
-// const quoteBlock: NotionBlock = {
-//   object: 'block',
-//   id: '4',
-//   parent: { type: 'page_id', page_id: 'test' },
-//   created_time: '2024-01-01T00:00:00.000Z',
-//   last_edited_time: '2024-01-01T00:00:00.000Z',
-//   created_by: { object: 'user', id: 'user1' },
-//   last_edited_by: { object: 'user', id: 'user1' },
-//   has_children: false,
-//   archived: false,
-//   in_trash: false,
-//   type: 'quote',
-//   quote: {
-//     rich_text: [
-//       {
-//         type: 'text',
-//         text: {
-//           content:
-//             'This is an inspiring quote block that demonstrates the quote styling.',
-//         },
-//         plain_text:
-//           'This is an inspiring quote block that demonstrates the quote styling.',
-//       },
-//     ],
-//   },
-// }
+const quoteBlock: NotionBlock = {
+  object: 'block',
+  id: '4',
+  parent: { type: 'page_id', page_id: 'test' },
+  created_time: '2024-01-01T00:00:00.000Z',
+  last_edited_time: '2024-01-01T00:00:00.000Z',
+  created_by: { object: 'user', id: 'user1' },
+  last_edited_by: { object: 'user', id: 'user1' },
+  has_children: false,
+  archived: false,
+  in_trash: false,
+  type: 'quote',
+  quote: {
+    rich_text: [
+      {
+        type: 'text',
+        text: {
+          content:
+            'This is an inspiring quote block that demonstrates the quote styling.',
+        },
+        plain_text:
+          'This is an inspiring quote block that demonstrates the quote styling.',
+      },
+    ],
+  },
+}
 
 const complexBlocks = [
   {
