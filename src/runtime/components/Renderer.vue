@@ -172,7 +172,7 @@ function isPartOfListGroup(blocks: AnyNotionBlock[], index: number): boolean {
 
   // If it's the first item in a list, it's not part of a group (it starts the group)
   if (index === 0) return false;
-  return blocks[index - 1]?.type === block.type;
+  return blocks[index - 1]?.type === block!.type;
 }
 
 // Get consecutive list items after the current index
@@ -184,8 +184,8 @@ function getConsecutiveListItems(
   const items: AnyNotionBlock[] = [];
 
   for (let i = startIndex + 1; i < blocks.length; i++) {
-    if (blocks[i].type === listType) {
-      items.push(blocks[i]);
+    if (blocks && blocks[i]?.type === listType) {
+      items.push(blocks[i]!);
     } else {
       break;
     }
