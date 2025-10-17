@@ -8,11 +8,7 @@ import {
 import { existsSync } from 'node:fs'
 import tailwindcss from '@tailwindcss/vite'
 
-// Module options TypeScript interface definition
-// @ts-ignore - Will add more options later
-export interface ModuleOptions {}
-
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   meta: {
     name: 'notion-renderer',
     configKey: 'notionRenderer',

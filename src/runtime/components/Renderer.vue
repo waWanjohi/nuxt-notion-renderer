@@ -47,7 +47,7 @@
           />
           <!-- Render consecutive list items -->
           <template
-            v-for="(nextBlock, nextIndex) in getConsecutiveListItems(
+            v-for="nextBlock in getConsecutiveListItems(
               blocks,
               index,
               'numbered_list_item',
