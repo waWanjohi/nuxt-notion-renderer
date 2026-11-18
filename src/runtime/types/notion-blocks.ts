@@ -20,8 +20,7 @@ export interface NotionBlock {
   archived: boolean
   in_trash: boolean
   type: BlockType
-  // @ts-expect-error - Dynamic keys based on block type
-  [key: string]: any // For block-specific content
+  [key: string]: any
 }
 
 export type BlockType
@@ -58,7 +57,7 @@ export interface RichText {
       url: string
     } | null
   }
-  mention?: any
+  mention?: unknown
   equation?: {
     expression: string
   }
